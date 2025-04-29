@@ -4,7 +4,7 @@ import '../global.css';
 import './index.css';
 
 // TODO nezapomeňte nastavit svůj login – jednoznačný identifikátor (třeba název účtu na GitHubu)
-//const login = ""
+const login = "Knedlenka"
 
 const response = await fetch(
   'https://nakupy.czechitas.dev/api/mon',
@@ -33,6 +33,7 @@ const HomePage = () => (
         {list.map((item) => (
           <ShopItem 
             key={item.id}
+            id={item.id}
             name={item.product}
             amount={item.amount + ' ' + item.unit}
             bought={item.done}
@@ -71,7 +72,23 @@ document.querySelector('.newitem-form')
         body: JSON.stringify(body),
       },
     );
-
+    
     window.location.reload();
   }
 );
+
+document.querySelectorAll(".btn-delete").forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    const id = e.target.dataset.id;                               // použití dataset pro získání id
+    
+    await fetch(`https://nakupy.czechitas.dev/api/mon/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: login,
+      },
+    });
+
+    window.location.reload()
+  });
+});
