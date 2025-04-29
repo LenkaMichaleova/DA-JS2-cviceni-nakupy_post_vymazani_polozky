@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  border-radius: 5px;
+  color: white;
+  background-color: #444;
+  border: none;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+}
+
+input[type="text"] {
+  border: 1px solid #444;
+  outline: none;
+  font-size: 1rem;
+  padding: 0.25rem;
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}

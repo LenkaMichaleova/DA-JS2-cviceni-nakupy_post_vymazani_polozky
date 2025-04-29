@@ -1,0 +1,25 @@
+.shopitem {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  background-color: #f4f298;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+.btn-tick {
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: transparent;
+  background-image: url(img/tick-off.svg);
+  background-size: contain;
+}
+
+.btn-tick--on {
+  background-image: url(img/tick-on.svg);
+}
+
+.shopitem__name {
+  flex: 1;
+}
