@@ -72,7 +72,7 @@ document.querySelector('.newitem-form')
         body: JSON.stringify(body),
       },
     );
-    
+
     window.location.reload();
   }
 );
@@ -89,6 +89,26 @@ document.querySelectorAll(".btn-delete").forEach((btn) => {
       },
     });
 
+    window.location.reload()
+  });
+});
+
+document.querySelectorAll(".btn-tick").forEach((btn) => {
+  btn.addEventListener("click", async (e) => {
+    const id = e.target.dataset.id;
+    console.log(id)
+
+    await fetch(`https://nakupy.czechitas.dev/api/mon/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: login,
+      },
+      body: JSON.stringify({
+        "done": true
+      }),
+    });
+    
     window.location.reload()
   });
 });
